@@ -1,0 +1,23 @@
+default:
+    suites:
+        default:
+            contexts:
+                - FeatureContext
+    extensions:
+        Behat\MinkExtension:
+            base_url: https://www.wahabq.dev.cruise.co
+            sessions:
+                default:
+                    goutte:
+                        guzzle_parameters:
+                           curl.options:
+                              CURLOPT_SSL_VERIFYPEER: false
+                              CURLOPT_FOLLOWLOCATION: false
+                              CURLOPT_CERTINFO: false
+                              CURLOPT_TIMEOUT: 120
+                           ssl.certificate_authority: false
+                javascript:
+                    selenium2:
+                        browser: chrome
+                        wd_host: http://127.0.0.1:9515
+                        capabilities: { "browser": "chrome", "version": "*", 'chrome': {'switches':['--start-maximized', "--headless", "--blink-settings=imagesEnabled=false", "--disable-extensions"]}}
