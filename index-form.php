@@ -1,10 +1,3 @@
-<?php
-/** BUGS
- * 1) If the name is 'World' the age is not shown.
- * 2) If the name is left empty, post submission it resets its value as opposed to staying empty.
- * 3) The age is shown in negative values.
- */
-?>
 <html>
 <title>Behat form interactions</title>
 <body>
@@ -84,3 +77,11 @@ Tell me a bit about yourself: <br /><br />
 </form>
 </body>
 </html>
+
+<?php
+/**
+ * 1) If the name is 'World' the age is not shown.
+ * 2) If the name is left empty, post submission it resets its value as opposed to staying empty.
+ * 3) The age is shown in negative values.
+ */
+?>
