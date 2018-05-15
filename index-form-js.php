@@ -13,6 +13,9 @@
 </head>
 
 <body>
+
+<?php require __DIR__ . '/partials/nav.php'; ?>
+
 <h3>Story</h3>
 In order to try out some basic tactics of behavioural testing<br />
 As a developer<br />
