@@ -11,22 +11,23 @@ I want to create a hello world example with SQL data manipulation<br />
     <li>A page is created that prints the data we have on a phone booking record.</li>
 </ol>
 
-Note: This page accepts a GET param: BookingId.
+Note: This page accepts a GET param: bookingId.
 
 <hr>
 
 <?php
 
-if (! array_key_exists('BookingId', $_GET)) {
-    throw new Exception('Key "BookingId" not found.');
+if (! array_key_exists('bookingId', $_GET)) {
+    echo ('Error: Key "bookingId" not found.');
+    exit;
 }
 
-$bookingId = $_GET['BookingId'];
+$bookingId = $_GET['bookingId'];
 
 require __DIR__ . '/config/dbconfig.php';
 
 if (! $username) {
-    echo 'Setup config before running this test.';
+    echo 'Error: Setup config before running this test.';
     exit;
 }
 
@@ -40,6 +41,7 @@ if (! $bookingData) {
     throw new Exception("Booking with Id '$bookingId' not found.");
 }
 
+echo "<h3>Booking Id $bookingId Details: </h3>";
 print_r($bookingData);
 
 ?>
