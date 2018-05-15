@@ -34,13 +34,15 @@ if (! array_key_exists('bookingId', $_GET)) {
 
 $bookingId = $_GET['bookingId'];
 try {
-    $pdo = new PDO("dblib:host=$host:$port;dbname=$dbname", $username, $password);
+    $dns = "dblib:host=$host:$port;dbname=$dbname";
+    $pdo = new PDO($dns, $username, $password);
 
     $sql = "SELECT TOP 1 * FROM PhoneBookings WHERE PhoneBookingId = $bookingId";
     $statement = $pdo->query($sql);
     $bookingData = $statement->fetchAll();
 } catch (Exception $e) {
     echo $e->getMessage();
+    echo 'DNS used: ' . $dns;
     exit;
 }
 
