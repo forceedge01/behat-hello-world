@@ -33,12 +33,16 @@ if (! array_key_exists('bookingId', $_GET)) {
 }
 
 $bookingId = $_GET['bookingId'];
+try {
+    $pdo = new PDO("dblib:host=$host:$port;dbname=$dbname", $username, $password);
 
-$pdo = new PDO("dblib:host=$host:$port;dbname=$dbname", $username, $password);
-
-$sql = "SELECT TOP 1 * FROM PhoneBookings WHERE PhoneBookingId = $bookingId";
-$statement = $pdo->query($sql);
-$bookingData = $statement->fetchAll();
+    $sql = "SELECT TOP 1 * FROM PhoneBookings WHERE PhoneBookingId = $bookingId";
+    $statement = $pdo->query($sql);
+    $bookingData = $statement->fetchAll();
+} catch (Exception $e) {
+    echo $e->getMessage();
+    exit;
+}
 
 if (! $bookingData) {
     echo "Booking with Id '$bookingId' not found.";
