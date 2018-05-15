@@ -1,3 +1,18 @@
+<html>
+<title>Behat form interactions</title>
+<body>
+<h3>Story</h3>
+In order to try out some basic tactics of behavioural testing<br />
+As a developer<br />
+I want to create a hello world example with SQL data manipulation<br />
+
+<h4>Acceptance criteria:</h4>
+<ol>
+    <li>A page is created that prints the data we have on a phone booking record.</li>
+</ol>
+
+<hr>
+
 <?php
 
 if (! array_key_exists('BookingId', $_GET)) {
@@ -7,6 +22,11 @@ if (! array_key_exists('BookingId', $_GET)) {
 $bookingId = $_GET['BookingId'];
 
 require __DIR__ . 'config/dbconfig.php';
+
+if (! $username) {
+    echo 'Setup config before running this test.';
+    exit;
+}
 
 $pdo = new PDO("dblib:host=$host:$port;dbname=$dbname", $username, $password);
 
@@ -19,3 +39,8 @@ if (! $bookingData) {
 }
 
 print_r($bookingData);
+
+?>
+
+</body>
+</html>
