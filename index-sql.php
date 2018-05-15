@@ -52,6 +52,7 @@ if (! $bookingData) {
 }
 
 echo "<h3>Booking Id $bookingId Details: </h3>";
+echo '<pre>';
 print_r($bookingData);
 
 ?>
