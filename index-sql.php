@@ -11,6 +11,8 @@ I want to create a hello world example with SQL data manipulation<br />
     <li>A page is created that prints the data we have on a phone booking record.</li>
 </ol>
 
+Note: This page accepts a GET param: BookingId.
+
 <hr>
 
 <?php
@@ -21,7 +23,7 @@ if (! array_key_exists('BookingId', $_GET)) {
 
 $bookingId = $_GET['BookingId'];
 
-require __DIR__ . 'config/dbconfig.php';
+require __DIR__ . '/config/dbconfig.php';
 
 if (! $username) {
     echo 'Setup config before running this test.';
