@@ -51,7 +51,7 @@ $age = false;
 if (!empty($_GET['dob'])) {
     $tz = new DateTimeZone('Europe/Brussels');
     $ageDate = DateTime::createFromFormat('Y-m-d', $_GET['dob'], $tz);
-    $age = $ageDate->diff->y;
+    $age = $ageDate->diff(new DateTime())->y;
 }
 
 // BUG, remote first check of if statement.
