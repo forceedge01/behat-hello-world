@@ -20,7 +20,7 @@ I want to create a hello world example with form submission<br />
 
 <h4>Acceptance criteria:</h4>
 <ol>
-    <li>The page is made visible by a button</li>
+    <li>The form is made visible by a button</li>
 </ol>
 
 <hr>
