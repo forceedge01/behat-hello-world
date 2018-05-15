@@ -5,6 +5,9 @@
     .strikethrough {
         text-decoration: line-through;
     }
+    li {
+        padding: 10px;
+    }
 </style>
 </head>
 <body>
