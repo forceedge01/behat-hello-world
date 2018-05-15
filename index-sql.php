@@ -20,19 +20,19 @@ Note: This page accepts a GET param: bookingId.
 
 <?php
 
-if (! array_key_exists('bookingId', $_GET)) {
-    echo ('Error: Key "bookingId" not found.');
-    exit;
-}
-
-$bookingId = $_GET['bookingId'];
-
 require __DIR__ . '/config/dbconfig.php';
 
 if (! $username) {
     echo 'Error: Setup config before running this test.';
     exit;
 }
+
+if (! array_key_exists('bookingId', $_GET)) {
+    echo ('Error: Key "bookingId" not found.');
+    exit;
+}
+
+$bookingId = $_GET['bookingId'];
 
 $pdo = new PDO("dblib:host=$host:$port;dbname=$dbname", $username, $password);
 
