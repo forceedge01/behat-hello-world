@@ -41,7 +41,8 @@ $statement = $pdo->query($sql);
 $bookingData = $statement->fetchAll();
 
 if (! $bookingData) {
-    throw new Exception("Booking with Id '$bookingId' not found.");
+    echo "Booking with Id '$bookingId' not found.";
+    exit;
 }
 
 echo "<h3>Booking Id $bookingId Details: </h3>";
