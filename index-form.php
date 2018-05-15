@@ -48,6 +48,7 @@ I want to create a hello world example with form submission<br />
 
 date_default_timezone_set('UTC');
 $age = false;
+
 if (!empty($_GET['dob'])) {
     $tz = new DateTimeZone('Europe/Brussels');
     $ageDate = DateTime::createFromFormat('Y-m-d', $_GET['dob'], $tz);
@@ -69,7 +70,7 @@ Tell me a bit about yourself: <br /><br />
 <form method="GET" action="<?php $_SERVER['PHP_SELF']?>">
 <label for="name">Enter you name: </label> <input type="text" value="<?php echo empty($_GET['name']) ? 'John' : $_GET['name']?>" name="name" id="name">
 <br />
-<label for="dob">Enter you date of birth: </label> <input type="date" name="dob" id="dob">
+<label for="dob">Enter you date of birth (YYYY-MM-DD): </label> <input type="text" name="dob" id="dob" placeholder="YYYY-MM-DD" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
 <br /><br />
 <button type="submit">Submit</button>
 <button type="reset">Reset</button>
