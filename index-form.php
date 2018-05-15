@@ -49,13 +49,9 @@ I want to create a hello world example with form submission<br />
 date_default_timezone_set('UTC');
 $age = false;
 if (!empty($_GET['dob'])) {
-    // explode the date to get month, day and year
-    // Format: 2016-12-08
-    $birthDate = explode("-", $_GET['dob']);
-    // get age from date or birthdate
-    $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[2], $birthDate[1], $birthDate[0]))) > date("md")
-        ? ((date("Y") - $birthDate[0]) - 1)
-        : (date("Y") - $birthDate[0]));
+    $tz = new DateTimeZone('Europe/Brussels');
+    $ageDate = DateTime::createFromFormat('Y-m-d', $_GET['dob'], $tz);
+    $age = $ageDate->diff->y;
 }
 
 // BUG, remote first check of if statement.
