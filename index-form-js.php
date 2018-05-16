@@ -56,10 +56,6 @@ if (!empty($_GET['dob'])) {
     $tz = new DateTimeZone('Europe/Brussels');
     $ageDate = DateTime::createFromFormat('Y-m-d', $_GET['dob'], $tz);
 
-    echo $ageDate->getTimestamp();
-    echo '-';
-    echo time();
-
     if ($ageDate->getTimestamp() > time()) {
         echo "Invalid age, you are not from the future.";
     } else {
