@@ -11,6 +11,7 @@
     h2 {
         color: steelblue;
         background: lightgray;
+        padding: 10px;
     }
 </style>
 </head>
