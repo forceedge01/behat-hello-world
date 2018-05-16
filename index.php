@@ -10,7 +10,7 @@
     }
     h2 {
         color: steelblue;
-        background: lightgray;
+        background: whitesmoke;
         padding: 10px;
     }
 </style>
