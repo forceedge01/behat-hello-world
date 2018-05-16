@@ -1,4 +1,5 @@
 .DS_Store
 composer.lock
 vendor
+!tests/Behaviour/features/bootstrap/FeatureContext.php
 features
