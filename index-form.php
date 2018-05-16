@@ -56,7 +56,7 @@ if (!empty($_GET['dob'])) {
 }
 
 // BUG, remote first check of if statement.
-if ($_GET['name'] !== 'John') {
+if ($_GET['name'] !== 'World') {
     if ($age !== false) {
         echo "You are $age year(s) old!";
     }
