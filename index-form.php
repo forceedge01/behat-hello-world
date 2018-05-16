@@ -56,7 +56,7 @@ if (!empty($_GET['dob'])) {
 }
 
 // BUG, remote first check of if statement.
-if ($_GET['name'] !== 'World') {
+if ($_GET['name'] !== 'John') {
     if ($age !== false) {
         echo "You are $age year(s) old!";
     }
@@ -80,7 +80,7 @@ Tell me a bit about yourself: <br /><br />
 
 <?php
 /**
- * 1) If the name is 'World' the age is not shown.
+ * 1) If the name is 'John' the age is not shown.
  * 2) If the name is left empty, post submission it resets its value as opposed to staying empty.
  * 3) The age is shown in negative values.
  */

@@ -58,11 +58,8 @@ if (!empty($_GET['dob'])) {
     $age = $ageDate->diff(new DateTime())->y;
 }
 
-// BUG, remote first check of if statement.
-if ($_GET['name'] !== 'World') {
-    if ($age !== false) {
-        echo "You are $age year(s) old!";
-    }
+if ($age !== false) {
+    echo "You are $age year(s) old!";
 }
 ?>
 </b>
