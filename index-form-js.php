@@ -17,9 +17,9 @@
 <?php require __DIR__ . '/partials/nav.php'; ?>
 
 <h3>Story</h3>
-In order to try out some basic tactics of behavioural testing<br />
+In order to try out some javascript behavioural testing tactics<br />
 As a developer<br />
-I want to create a hello world example with form submission<br />
+I want to create a hello world example with form submission with a bit of JS<br />
 
 <h4>Acceptance criteria:</h4>
 <ol>
