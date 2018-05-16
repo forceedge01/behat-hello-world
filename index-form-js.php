@@ -70,7 +70,7 @@ Tell me a bit about yourself: <br /><br />
 <button type="button" id="showForm">Show Form!</button>
 
 <form method="GET" action="<?php $_SERVER['PHP_SELF']?>" style="display: none">
-<label for="name">Enter you name: </label> <input type="text" value="<?php echo empty($_GET['name']) ? 'John' : $_GET['name']?>" name="name" id="name">
+<label for="name">Enter you name: </label> <input type="text" value="<?php echo array_key_exists('name', $_GET) ? $_GET['name'] : 'John' ?>" name="name" id="name">
 <br />
 <label for="dob">Enter you date of birth (YYYY-MM-DD): </label> <input type="text" name="dob" id="dob" placeholder="YYYY-MM-DD" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
 <br /><br />
