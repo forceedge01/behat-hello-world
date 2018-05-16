@@ -55,7 +55,16 @@ $age = false;
 if (!empty($_GET['dob'])) {
     $tz = new DateTimeZone('Europe/Brussels');
     $ageDate = DateTime::createFromFormat('Y-m-d', $_GET['dob'], $tz);
-    $age = $ageDate->diff(new DateTime())->y;
+
+    echo $ageDate->getTimestamp();
+    echo '-';
+    echo time();
+
+    if ($ageDate->getTimestamp() > time()) {
+        echo "Invalid age, you are not from the future.";
+    } else {
+        $age = $ageDate->diff(new DateTime())->y;
+    }
 }
 
 if ($age !== false) {
@@ -82,7 +91,6 @@ Tell me a bit about yourself: <br /><br />
 
 <?php
 /**
- * 1) If the name is left empty, post submission it resets its value as opposed to staying empty.
- * 2) The age is shown in negative values.
+ * 1) The age is shown in negative values.
  */
 ?>
