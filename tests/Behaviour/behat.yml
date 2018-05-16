@@ -4,6 +4,10 @@ default:
             contexts:
                 - FeatureContext
                 - Behat\MinkExtension\Context\MinkContext
+                # - Genesis\SQLExtensionWrapper\DataModSQLContext:
+                #     debug: false
+                #     dataModMapping:
+                #         - "*": \QuickPack\DataMod\
     extensions:
         Behat\MinkExtension:
             base_url: https://www.wahabq.dev.cruise.co
