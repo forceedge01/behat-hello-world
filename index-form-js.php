@@ -84,9 +84,3 @@ Tell me a bit about yourself: <br /><br />
 </form>
 </body>
 </html>
-
-<?php
-/**
- * 1) The age is shown in negative values.
- */
-?>
