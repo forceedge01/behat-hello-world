@@ -29,32 +29,40 @@ class FeatureContext implements Context
     }
 
     /**
-     * @--AfterStep
+     * @When /^I set the form field values:$/
      */
-    // public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
-    // {
-    //     if ($scope->getTestResult()->getResultCode() === TestResult::FAILED) {
-    //         try {
-    //             $objectHash = spl_object_hash($scope->getTestResult()->getException());
-    //             if (self::$exceptionHash !== $objectHash) {
-    //                 self::$exceptionHash = $objectHash;
+    public function iSetTheFormFieldValues(TableNode $table)
+    {
+        throw new PendingException();
+    }
 
-    //                 $mink = $scope->getEnvironment()->getContexts()[1]->getMink();
-    //                 $session = $mink->getSession();
+    /**
+     * @AfterStep
+     */
+    public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
+    {
+        if ($scope->getTestResult()->getResultCode() === TestResult::FAILED) {
+            try {
+                $objectHash = spl_object_hash($scope->getTestResult()->getException());
+                if (self::$exceptionHash !== $objectHash) {
+                    self::$exceptionHash = $objectHash;
 
-    //                 $currentUrl = null;
-    //                 try {
-    //                     $currentUrl = $session->getCurrentUrl();
-    //                 } catch (Exception $e) {
-    //                     $currentUrl = 'Unable to fetch current url, error: ' . $e->getMessage();
-    //                 }
+                    $mink = $scope->getEnvironment()->getContexts()[1]->getMink();
+                    $session = $mink->getSession();
 
-    //                 echo 'URL: ' . $currentUrl;
-    //             }
-    //         } catch (DriverException $e) {
-    //             // The driver is not available, dont fail - allow behat to print out the actual error message.
-    //             echo 'Error message: ' . $e->getMessage();
-    //         }
-    //     }
-    // }
+                    $currentUrl = null;
+                    try {
+                        $currentUrl = $session->getCurrentUrl();
+                    } catch (Exception $e) {
+                        $currentUrl = 'Unable to fetch current url, error: ' . $e->getMessage();
+                    }
+
+                    echo 'URL: ' . $currentUrl;
+                }
+            } catch (DriverException $e) {
+                // The driver is not available, dont fail - allow behat to print out the actual error message.
+                echo 'Error message: ' . $e->getMessage();
+            }
+        }
+    }
 }
