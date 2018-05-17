@@ -65,6 +65,11 @@ if (array_key_exists('dob', $_GET)) {
         }
     }
 // }
+
+if ($age !== false) {
+    echo "You are $age year(s) old!";
+}
+
 ?>
 </b>
 <br /><br />
