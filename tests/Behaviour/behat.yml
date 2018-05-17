@@ -10,7 +10,7 @@ default:
                 #         - "*": \QuickPack\DataMod\
     extensions:
         Behat\MinkExtension:
-            base_url: https://www.wahabq.dev.cruise.co
+            base_url: http://www.wahabq.dev.cruise.co
             sessions:
                 default:
                     goutte:
