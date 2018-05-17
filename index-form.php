@@ -56,7 +56,7 @@ if (array_key_exists('dob', $_GET)) {
 }
 
 // BUG, remote first check of if statement.
-if ($_GET['name'] !== 'World') {
+// if ($_GET['name'] !== 'World') {
     if (array_key_exists('dob', $_GET)) {
         if ($ageDate->getTimestamp() > time()) {
             echo "Invalid age, you are not from the future.";
@@ -64,7 +64,7 @@ if ($_GET['name'] !== 'World') {
             $age = $ageDate->diff(new DateTime())->y;
         }
     }
-}
+// }
 ?>
 </b>
 <br /><br />
