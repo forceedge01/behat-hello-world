@@ -49,7 +49,7 @@ I want to create a hello world example with form submission<br />
 date_default_timezone_set('UTC');
 $age = false;
 
-if (!empty($_GET['dob'])) {
+if (array_key_exists('dob', $_GET)) {
     $tz = new DateTimeZone('Europe/Brussels');
     $ageDate = DateTime::createFromFormat('Y-m-d', $_GET['dob'], $tz);
     $age = $ageDate->diff(new DateTime())->y;
@@ -57,10 +57,12 @@ if (!empty($_GET['dob'])) {
 
 // BUG, remote first check of if statement.
 if ($_GET['name'] !== 'World') {
-    if ($ageDate->getTimestamp() > time()) {
-        echo "Invalid age, you are not from the future.";
-    } else {
-        $age = $ageDate->diff(new DateTime())->y;
+    if (array_key_exists('dob', $_GET)) {
+        if ($ageDate->getTimestamp() > time()) {
+            echo "Invalid age, you are not from the future.";
+        } else {
+            $age = $ageDate->diff(new DateTime())->y;
+        }
     }
 }
 ?>
