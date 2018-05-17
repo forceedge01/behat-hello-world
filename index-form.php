@@ -57,8 +57,10 @@ if (!empty($_GET['dob'])) {
 
 // BUG, remote first check of if statement.
 if ($_GET['name'] !== 'World') {
-    if ($age !== false) {
-        echo "You are $age year(s) old!";
+    if ($ageDate->getTimestamp() > time()) {
+        echo "Invalid age, you are not from the future.";
+    } else {
+        $age = $ageDate->diff(new DateTime())->y;
     }
 }
 ?>
