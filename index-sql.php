@@ -12,6 +12,8 @@ I want to create a hello world example with SQL data manipulation<br />
 <h4>Acceptance criteria:</h4>
 <ol>
     <li>A page is created that prints the data we have on a phone booking record.</li>
+    <li>If the booking due date is in the future, the screen displays "Your booking due date is in the future."</li>
+    <li>If the booking due date is in the past, the screen displays "Your booking due date is in the past."</li>
 </ol>
 
 Note: This page accepts a GET param: bookingId.
@@ -54,6 +56,17 @@ if (! $bookingData) {
 echo "<h3>Booking Id $bookingId Details: </h3>";
 echo '<pre>';
 print_r($bookingData);
+
+?>
+<br />
+<?php
+
+// Bug: Message purposefully inversed.
+if (strtotime($bookingData['InvoiceDue']) < time()) {
+    echo 'Your booking due date is in the future.';
+} else {
+    echo 'Your booking due date is in the past.';
+}
 
 ?>
 
