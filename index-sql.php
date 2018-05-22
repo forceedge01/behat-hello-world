@@ -55,9 +55,9 @@ if (! $bookingData) {
 
 // Bug: Message purposefully inversed.
 if (strtotime($bookingData['InvoiceDue']) < time()) {
-    echo 'Your booking due date is in the future.';
+    echo '<h3>Your booking due date is in the future.</h3>';
 } else {
-    echo 'Your booking due date is in the past.';
+    echo '<h3>Your booking due date is in the past.</h3>';
 }
 
 echo "<h3>Booking Id $bookingId Details: </h3>";
