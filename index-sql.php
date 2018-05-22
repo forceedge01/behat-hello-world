@@ -53,20 +53,16 @@ if (! $bookingData) {
     exit;
 }
 
-echo "<h3>Booking Id $bookingId Details: </h3>";
-echo '<pre>';
-print_r($bookingData);
-
-?>
-<br />
-<?php
-
 // Bug: Message purposefully inversed.
 if (strtotime($bookingData['InvoiceDue']) < time()) {
     echo 'Your booking due date is in the future.';
 } else {
     echo 'Your booking due date is in the past.';
 }
+
+echo "<h3>Booking Id $bookingId Details: </h3>";
+echo '<pre>';
+print_r($bookingData);
 
 ?>
 
