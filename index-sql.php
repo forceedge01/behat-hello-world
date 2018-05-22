@@ -53,18 +53,23 @@ if (! $bookingData) {
     exit;
 }
 
-// Bug: Message purposefully inversed.
-if (strtotime($bookingData['InvoiceDue']) < time()) {
-    echo '<h3>Your booking due date is in the future.</h3>';
-} else {
-    echo '<h3>Your booking due date is in the past.</h3>';
-}
+?>
 
-echo "<h3>Booking Id $bookingId Details: </h3>";
-echo '<pre>';
-print_r($bookingData);
+<div id="fortuneTeller">
+    <!-- Bug: Message purposefully inversed. -->
+    <?php if (strtotime($bookingData['InvoiceDue']) < time()) : ?>
+        <h3>Your booking due date is in the future.</h3>
+    <?php else : ?>
+        <h3>Your booking due date is in the past.</h3>
+    <?php endif; ?>
+</div>
 
 ?>
+
+<h3>Booking Id $bookingId Details: </h3>
+<pre>
+
+<?php print_r($bookingData); ?>
 
 </body>
 </html>
