@@ -21,8 +21,8 @@ default:
                               CURLOPT_CERTINFO: false
                               CURLOPT_TIMEOUT: 120
                            ssl.certificate_authority: false
-                # javascript:
-                #     selenium2:
-                #         browser: chrome
-                #         wd_host: http://127.0.0.1:9515
-                #         capabilities: { "browser": "chrome", "version": "*", 'chrome': {'switches':['--start-maximized', "--headless", "--blink-settings=imagesEnabled=false", "--disable-extensions"]}}
+                javascript:
+                    selenium2:
+                        browser: chrome
+                        wd_host: http://127.0.0.1:9515
+                        capabilities: { "browser": "chrome", "version": "*", 'chrome': {'switches':['--start-maximized', "--headless", "--blink-settings=imagesEnabled=false", "--disable-extensions"]}}

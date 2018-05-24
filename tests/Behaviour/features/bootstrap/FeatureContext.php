@@ -2,20 +2,28 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Hook\Scope\AfterStepScope;
+use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
+use Behat\MinkExtension\Context\MinkAwareContext;
 use Behat\Mink\Exception\DriverException;
+use Behat\Mink\Mink;
 use Behat\Testwork\Tester\Result\TestResult;
+use Exception;
 
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class FeatureContext implements Context, MinkAwareContext
 {
     /**
      * @var string
      */
     private static $exceptionHash;
+
+    private $mink;
+
+    private $minkParameters;
 
     /**
      * Initializes context.
@@ -29,11 +37,23 @@ class FeatureContext implements Context
     }
 
     /**
-     * @When /^I set the form field values:$/
+     * Sets Mink instance.
+     *
+     * @param Mink $mink Mink session manager
      */
-    public function iSetTheFormFieldValues(TableNode $table)
+    public function setMink(Mink $mink)
     {
-        throw new PendingException();
+        $this->mink = $mink;
+    }
+
+    /**
+     * Sets parameters provided for Mink.
+     *
+     * @param array $parameters
+     */
+    public function setMinkParameters(array $parameters)
+    {
+        $this->minkParameters = $parameters;
     }
 
     /**
@@ -64,5 +84,31 @@ class FeatureContext implements Context
                 echo 'Error message: ' . $e->getMessage();
             }
         }
+    }
+
+    /**
+     * @Given I am on the :arg1 page
+     */
+    public function iAmOnThePage($arg1)
+    {
+        if ($arg1 === 'Test Javascript') {
+            $url = '/behat-hello-world/index-form-js.php';
+        }
+
+        $this->mink->getSession()->visit($this->minkParameters['base_url'] . $url);
+    }
+
+    /**
+     * @Given I press :arg1 to make the form visible
+     */
+    public function iPressToMakeTheFormVisible($arg1)
+    {
+        $element = $this->mink->getSession()->getPage()->find('css', '#' . $arg1);
+
+        if (! $element) {
+            throw new Exception('Element not found.');
+        }
+
+        $element->click();
     }
 }
