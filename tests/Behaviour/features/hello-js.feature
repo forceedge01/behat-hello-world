@@ -27,7 +27,6 @@ Feature:
         Examples:
             | name  | dob        | result                                                 |
             | Abdul |            | Hello Abdul!                                           |
-            # |       |            | Hello John!                                            |
             |       | 1989-05-10 | Hello World! You are 29 year(s) old!                   |
             | Yahoo | 2050-05-10 | Hello Yahoo! Invalid age, you are not from the future. |
     

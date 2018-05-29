@@ -14,15 +14,21 @@ use Exception;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context, MinkAwareContext
+class RoutingContext implements Context, MinkAwareContext
 {
     /**
      * @var string
      */
     private static $exceptionHash;
 
+    /**
+     * @var Mink
+     */
     private $mink;
 
+    /**
+     * @var array
+     */
     private $minkParameters;
 
     /**
@@ -57,32 +63,14 @@ class FeatureContext implements Context, MinkAwareContext
     }
 
     /**
-     * @AfterStep
+     * @Given I am on the :arg1 page
      */
-    public function takeScreenShotAfterFailedStep(AfterStepScope $scope)
+    public function iAmOnThePage($arg1)
     {
-        if ($scope->getTestResult()->getResultCode() === TestResult::FAILED) {
-            try {
-                $objectHash = spl_object_hash($scope->getTestResult()->getException());
-                if (self::$exceptionHash !== $objectHash) {
-                    self::$exceptionHash = $objectHash;
-
-                    $mink = $this->mink;
-                    $session = $mink->getSession();
-
-                    $currentUrl = null;
-                    try {
-                        $currentUrl = $session->getCurrentUrl();
-                    } catch (Exception $e) {
-                        $currentUrl = 'Unable to fetch current url, error: ' . $e->getMessage();
-                    }
-
-                    echo 'URL: ' . $currentUrl;
-                }
-            } catch (DriverException $e) {
-                // The driver is not available, dont fail - allow behat to print out the actual error message.
-                echo 'Error message: ' . $e->getMessage();
-            }
+        if ($arg1 === 'Test Javascript') {
+            $url = '/behat-hello-world/index-form-js.php';
         }
+
+        $this->mink->getSession()->visit($this->minkParameters['base_url'] . $url);
     }
 }
