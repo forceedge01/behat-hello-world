@@ -12,8 +12,6 @@ use Behat\Testwork\Tester\Result\TestResult;
 use Exception;
 use Genesis\TestRouting\Routing;
 
-require __DIR__ . '/Config/Routing.php';
-
 /**
  * Defines application features from the specific context.
  */
@@ -43,6 +41,7 @@ class RoutingContext implements Context, MinkAwareContext
      */
     public function __construct()
     {
+        Routing::registerFile(__DIR__ . '/Config/Routing.php');
     }
 
     /**
