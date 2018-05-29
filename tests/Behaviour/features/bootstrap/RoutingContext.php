@@ -10,6 +10,9 @@ use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Mink;
 use Behat\Testwork\Tester\Result\TestResult;
 use Exception;
+use Genesis\TestRouting\Routing;
+
+require __DIR__ . '/Config/Routing.php';
 
 /**
  * Defines application features from the specific context.
@@ -67,10 +70,8 @@ class RoutingContext implements Context, MinkAwareContext
      */
     public function iAmOnThePage($arg1)
     {
-        if ($arg1 === 'Test Javascript') {
-            $url = '/behat-hello-world/index-form-js.php';
-        }
+        $url = Routing::getRoute($arg1);
 
-        $this->mink->getSession()->visit($this->minkParameters['base_url'] . $url);
+        return $this->mink->getSession()->visit($this->minkParameters['base_url'] . $url);
     }
 }

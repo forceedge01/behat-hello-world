@@ -4,7 +4,7 @@ Feature:
     I want to create a hello world example with form submission
 
     Background:
-        Given I am on the "Test Javascript" page
+        Given I am on the "Hello JS" page
 
     @javascript
     Scenario: Happy path - Input name and date of birth.
