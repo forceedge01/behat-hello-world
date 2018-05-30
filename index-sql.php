@@ -64,8 +64,6 @@ if (! $bookingData) {
     <?php endif; ?>
 </div>
 
-?>
-
 <h3>Booking Id $bookingId Details: </h3>
 <pre>
 
