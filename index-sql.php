@@ -30,7 +30,7 @@ if (! $username) {
 }
 
 if (! array_key_exists('bookingId', $_GET)) {
-    echo ('Error: Key "bookingId" not found.');
+    echo ('Error: Key \'bookingId\' not found.');
     exit;
 }
 
