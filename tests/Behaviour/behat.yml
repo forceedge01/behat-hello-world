@@ -7,7 +7,7 @@ default:
                 - RoutingContext
                 - Behat\MinkExtension\Context\MinkContext
                 # - Genesis\SQLExtensionWrapper\DataModSQLContext:
-                #     debug: 1
+                #     debug: false
                 #     dataModMapping:
                 #         - "*": \DataMod\
     extensions:
