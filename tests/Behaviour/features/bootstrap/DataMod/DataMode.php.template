@@ -1,9 +1,9 @@
 <?php
 
-namespace QuickPack\DataMod;
+namespace DataMod;
 
+use Genesis\SQLExtensionWrapper\BaseProvider;
 use Genesis\SQLExtensionWrapper\DataRetriever;
-use QuickPack\Base\DataMod\DataAbstraction;
 
 /**
  * How to use this file to create your own DataMod.
@@ -22,7 +22,7 @@ use QuickPack\Base\DataMod\DataAbstraction;
 /**
  * Template extends DatabaseManipulator class.
  */
-class Template extends DataAbstraction
+class Template extends BaseProvider
 {
     /**
      * @return string

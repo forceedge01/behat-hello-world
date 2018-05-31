@@ -9,7 +9,7 @@ use Behat\MinkExtension\Context\MinkAwareContext;
 use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Mink;
 use Behat\Testwork\Tester\Result\TestResult;
-use Exception;
+use Genesis\SQLExtensionWrapper\BaseProvider;
 
 /**
  * Defines application features from the specific context.

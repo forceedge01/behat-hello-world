@@ -66,14 +66,16 @@ class RoutingContext implements Context, MinkAwareContext
 
     /**
      * @Given I am on the :arg1 page
-     * @Given I am on the :arg1 page with params
+     * @Given I am on the :arg1 page with params:
      */
     public function iAmOnThePage($arg1, TableNode $params = null)
     {
         $url = Routing::getRoute($arg1);
 
         return $this->mink->getSession()->visit(
-            $this->minkParameters['base_url'] . $url . '?' . http_build_query($params->getRowsHash())
+            $this->minkParameters['base_url'] .
+            $url .
+            ($params ? '?' . http_build_query($params->getRowsHash()) : null)
         );
     }
 }
