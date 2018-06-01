@@ -10,6 +10,7 @@ use Behat\Mink\Exception\DriverException;
 use Behat\Mink\Mink;
 use Behat\Testwork\Tester\Result\TestResult;
 use Exception;
+use Genesis\SQLExtensionWrapper\BaseProvider;
 use Genesis\TestRouting\Routing;
 
 /**
@@ -70,12 +71,15 @@ class RoutingContext implements Context, MinkAwareContext
      */
     public function iAmOnThePage($arg1, TableNode $params = null)
     {
-        $url = Routing::getRoute($arg1);
+        $url = Routing::getRoute($arg1, function ($resolvedUrl) use ($params) {
+            $resolvedUrl .= ($params ? '?' . http_build_query($params->getRowsHash()) : null);
+
+            return BaseProvider::getApi()->get('keyStore')->parseKeywordsInString($resolvedUrl);
+        });
 
         return $this->mink->getSession()->visit(
             $this->minkParameters['base_url'] .
-            $url .
-            ($params ? '?' . http_build_query($params->getRowsHash()) : null)
+            $url
         );
     }
 }

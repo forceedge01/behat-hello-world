@@ -5,6 +5,7 @@ default:
                 - FeatureContext
                 - HelloJSContext
                 - RoutingContext
+                - DataModContext
                 - Behat\MinkExtension\Context\MinkContext
                 # - Genesis\SQLExtensionWrapper\DataModSQLContext:
                 #     debug: false
