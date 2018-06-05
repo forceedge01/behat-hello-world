@@ -53,7 +53,9 @@ if (! $bookingData) {
     exit;
 }
 
-$sql = "select top 1 * from Consultants where ConsultantId = " . $bookingData['ConsultantId'];
+$sql = "select top 1 * from Consultants where ConsultantId = " . $bookingData[0]['ConsultantId'];
+$statement = $pdo->query($sql);
+$consultantData = $statement->fetchAll();
 
 echo $sql;
 
@@ -68,7 +70,10 @@ echo $sql;
     <?php endif; ?>
 </div>
 
-<h3>Booking Id $bookingId Details: </h3>
+<h3>Booking Id <?php echo $bookingId ?> Details: </h3>
+The consultant looking after this booking is <b><?php echo $consultantData[0]['FirstName'] ?> <?php echo $consultantData[0]['LastName'] ?></b> <br />
+<b><?php echo $consultantData[0]['Title'] ?></b> <br />
+Email: <?php echo $consultantData[0]['EmailAddress'] ?><br />
 <pre>
 
 <?php print_r($bookingData); ?>
