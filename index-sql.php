@@ -56,7 +56,6 @@ if (! $bookingData) {
 $sql = "select top 1 * from Consultants where ConsultantId = " . $bookingData['ConsultantId'];
 
 echo $sql;
-exit;
 
 ?>
 
