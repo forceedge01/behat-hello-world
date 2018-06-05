@@ -30,7 +30,7 @@ if (! $username) {
 }
 
 if (! array_key_exists('bookingId', $_GET)) {
-    echo ('Error: Key \'bookingId\' not found.');
+    echo('Error: Key \'bookingId\' not found.');
     exit;
 }
 
@@ -52,6 +52,11 @@ if (! $bookingData) {
     echo "Booking with Id '$bookingId' not found.";
     exit;
 }
+
+$sql = "select top 1 * from Consultants where ConsultantId = " . $bookingData['ConsultantId'];
+
+echo $sql;
+exit;
 
 ?>
 
