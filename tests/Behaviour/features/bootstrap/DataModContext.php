@@ -19,15 +19,15 @@ class DataModContext implements Context
     {
         date_default_timezone_set('UTC');
 
-        // BaseProvider::setCredentials([
-        //     'engine' => 'dblib',
-        //     'name' => 'Cruise-4_6',
-        //     'schema' => 'dbo',
-        //     'prefix' => '',
-        //     'host' => '31.193.11.199',
-        //     'port' => '1433',
-        //     'username' => 'app_cruise',
-        //     'password' => 'eyesorefreesh1ps'
-        // ]);
+        BaseProvider::setCredentials([
+            'engine' => 'dblib',
+            'name' => 'Cruise-4_6',
+            'schema' => 'dbo',
+            'prefix' => '',
+            'host' => '31.193.11.199',
+            'port' => '1433',
+            'username' => 'app_cruise',
+            'password' => 'eyesorefreesh1ps'
+        ]);
     }
 }

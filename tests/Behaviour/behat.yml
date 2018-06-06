@@ -7,10 +7,10 @@ default:
                 - RoutingContext
                 - DataModContext
                 - Behat\MinkExtension\Context\MinkContext
-                # - Genesis\SQLExtensionWrapper\DataModSQLContext:
-                #     debug: false
-                #     dataModMapping:
-                #         - "*": \DataMod\
+                - Genesis\SQLExtensionWrapper\DataModSQLContext:
+                    debug: 1
+                    dataModMapping:
+                        - "*": \DataMod\
     extensions:
         Behat\MinkExtension:
             base_url: http://www.wahabq.dev.cruise.co
