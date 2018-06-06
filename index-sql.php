@@ -54,9 +54,15 @@ if (! $bookingData) {
     exit;
 }
 
-$sql = "select top 1 * from Consultants where ConsultantId = " . $bookingData[0]['ConsultantId'];
-$statement = $pdo->query($sql);
-$consultantData = $statement->fetchAll();
+try {
+    $sql = "select top 1 * from Consultants where ConsultantId = " . $bookingData[0]['ConsultantId'];
+    $statement = $pdo->query($sql);
+    $consultantData = $statement->fetchAll();
+} catch (Exception $e) {
+    echo $e->getMessage();
+    echo 'DNS used: ' . $dns;
+    exit;
+}
 
 ?>
 
