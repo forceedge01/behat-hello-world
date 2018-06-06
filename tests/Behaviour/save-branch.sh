@@ -6,3 +6,4 @@ git add .
 git commit -m "Local changes"
 git checkout master
 git pull
+composer install
