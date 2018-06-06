@@ -17,6 +17,8 @@ class DataModContext implements Context
      */
     public function __construct()
     {
+        date_default_timezone_set('UTC');
+
         // BaseProvider::setCredentials([
         //     'engine' => 'dblib',
         //     'name' => 'Cruise-4_6',
